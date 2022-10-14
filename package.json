@@ -6,8 +6,6 @@
   "scripts": {
     "dev": "tsc --build && NODE_ENV=local pm2 start ./dist/app.js --attach",
     "test": "tsc --build && NODE_ENV=test pm2 start ./dist/app.js --attach",
-    "production": "tsc --build && NODE_ENV=production pm2 start ./dist/app.js",
-    "watch": "nodemon --ext js,ts --exec npm start"
   },
   "author": "viki",
   "license": "ISC",
