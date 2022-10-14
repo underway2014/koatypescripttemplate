@@ -14,11 +14,11 @@ export default class User extends Model {
     @Column({
       comment: 'user name'
     })
-    name: string;
+    public name: string;
 
     @Column({
       comment: 'user email'
     })
-    age!: number;
+    public age!: number;
     
 }

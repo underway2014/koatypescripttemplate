@@ -7,16 +7,16 @@ export default class Files extends Model {
     @Column({
       comment: 'user id'
     })
-    user_id: number;
+    public user_id: number;
 
     @Column({
       comment: 'file name'
     })
-    name: string;
+    public name: string;
 
     @Column({
       comment: 'file size'
     })
-    size!: number;
+    public size!: number;
     
 }

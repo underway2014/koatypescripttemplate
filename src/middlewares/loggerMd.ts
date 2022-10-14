@@ -6,7 +6,7 @@ export default function genLoggerMd() {
     return async (ctx:Koa.DefaultContext , next: any) => {
         const begin = new Date().getMilliseconds()
         await next()
-        var cost = new Date().getMilliseconds() - begin
+        const cost = new Date().getMilliseconds() - begin
         logger.info(
             '%s %s -- %s %s %s HTTP/%s, %s %s %sms',
         moment().format('YYYY-MM-DD HH:mm:ss.SSS'),
