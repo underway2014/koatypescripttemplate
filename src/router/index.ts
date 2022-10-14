@@ -1,20 +1,19 @@
 import Koa from 'koa'
 import Router from "koa-router"
-import User from '../models/user'
 
+import User from '../models/user'
 import logger from '../logger'
 
 const router: Router = new Router()
-console.log('__dirname rr:', __dirname);
+
 router.get("/", async (ctx: Koa.DefaultContext) => {
  
     let user = await User.create({
         name: 'libin'
     })
 
-    console.log('user:', user)
-
     logger.info('logger user:', user)
+    logger.info('node env:', process.env.NODE_ENV, SYSTEM_CONFIG)
 
     let res = await User.findAll({
         where: {
@@ -24,10 +23,14 @@ router.get("/", async (ctx: Koa.DefaultContext) => {
 
     ctx.body = res
 })
-router.post("/post", async (ctx: Koa.DefaultContext) => {
-    logger.info('logger post:', ctx.request.body)
 
-    ctx.body = ctx.request.body.shuJu
+router.post("/post", async (ctx: Koa.DefaultContext) => {
+    try {
+      logger.info('logger post:', ctx.request.body)
+        ctx.body = ctx.request.body.shuJu
+    }catch(err) {
+        logger.error(err)
+    }
 })
 
 export default router

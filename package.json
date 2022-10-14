@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --build && node ./dist/app.js",
+    "dev": "tsc --build && NODE_ENV=local pm2 start ./dist/app.js --attach",
+    "test": "tsc --build && NODE_ENV=test pm2 start ./dist/app.js --attach",
+    "production": "tsc --build && NODE_ENV=production pm2 start ./dist/app.js",
     "watch": "nodemon --ext js,ts --exec npm start"
   },
   "author": "viki",
@@ -27,12 +29,14 @@
     "@types/koa-router": "^7.4.4",
     "@types/node": "^18.7.23",
     "@types/validator": "^13.7.7",
-    "@typescript-eslint/eslint-plugin": "^5.39.0",
-    "@typescript-eslint/parser": "^5.39.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",
+    "eslint-config-alloy": "^4.7.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.1",
+    "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   }
 }
